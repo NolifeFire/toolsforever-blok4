@@ -1,15 +1,8 @@
 <?php
-// Path: www/dashboard.php
-session_start();
 
-if (!isset($_SESSION['user_id'])) {
-    echo "You are not logged in, please login. ";
-    echo "<a href='login.php'>Login here</a>";
-    exit;
-}
+require 'session_check.php';
 
-
-if ($_SESSION['role'] != 'administrator') {
+if ($_SESSION['role'] != 'admin') {
     echo "You are not allowed to view this page, please login as administrator";
     exit;
 }
